@@ -13,4 +13,12 @@ use App\Http\Controllers\Common\Auth\BaseLoginController;
 class LoginController extends BaseLoginController
 {
     protected $guard = 'admin';
+
+    /**
+     * Show login form
+     */
+    public function showLoginForm()
+    {
+        return view('admin.index');
+    }
 }

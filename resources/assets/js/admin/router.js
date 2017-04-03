@@ -6,6 +6,7 @@ import Router from 'vue-router'
 import Container from './components/Container.vue'
 import Dashboard from './views/Dashboard.vue'
 import PageNotFound from './views/pages/Page404.vue'
+import Login from './views/auth/Login.vue'
 
 Vue.use(Router);
 
@@ -20,13 +21,18 @@ let routes = [
                 path: 'dashboard',
                 name: 'dashboard',
                 component: Dashboard
-            },
-            {
-                path: '*',
-                name: 'page.404',
-                component: PageNotFound,
             }
         ]
+    },
+    {
+        path: '/admin/login',
+        name: 'login',
+        component: Login
+    },
+    {
+        path: '*',
+        name: 'page.404',
+        component: PageNotFound,
     }
 ];
 

@@ -24,6 +24,8 @@ abstract class BaseLoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
+    abstract public function showLoginForm();
+
     /**
      * Validate login request
      * @param Request $request
