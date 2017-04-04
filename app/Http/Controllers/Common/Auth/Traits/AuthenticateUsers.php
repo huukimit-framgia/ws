@@ -8,8 +8,8 @@
 
 namespace App\Http\Controllers\Common\Auth\Traits;
 
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class AuthenticateUsers

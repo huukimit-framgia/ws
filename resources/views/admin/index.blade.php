@@ -8,14 +8,13 @@
 
     <title>{{config('app.name')}}</title>
 
-    {{--Styles--}}
-    <link rel="stylesheet" href="{{asset('vendor/css/font-awesome.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/css/simple-line-icons.css')}}">
-    <link rel="stylesheet" href="{{mix('css/admin.style.css')}}">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"/>
+    <link rel="stylesheet" href="{{mix('css/admin/admin.style.css')}}">
 </head>
 
 <body>
-    <div id="app"></div>
-    <script src="{{mix('js/main.admin.js')}}"></script>
+<div id="app"></div>
+<script src="{{mix('js/admin/main.admin.js')}}"></script>
 </body>
 </html>
