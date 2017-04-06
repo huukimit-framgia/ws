@@ -1,9 +1,20 @@
 <template>
     <div>
         <h1>Dashboard</h1>
-        <p>
-            <router-link :to="{name: 'root'}">Click here</router-link> to refresh.
-        </p>
+        <p>Here you can do stuff</p>
+
+        <div class="box">
+            <div class="box-top">News</div>
+            <div class="box-panel">Lorem nes stuf</div>
+        </div>
+        <div class="box">
+            <div class="box-top">News</div>
+            <div class="box-panel">Lorem nes stuf</div>
+        </div>
+        <div class="box">
+            <div class="box-top">News</div>
+            <div class="box-panel">Lorem nes stuf</div>
+        </div>
     </div>
 </template>
 
