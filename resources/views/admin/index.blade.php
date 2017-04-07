@@ -16,5 +16,18 @@
 <body>
 <div id="app"></div>
 <script src="{{mix('js/admin/main.admin.js')}}"></script>
+<script>
+    $(document).ready(() => {
+        $("a.mobile").click(() => {
+            $(".sidebar").slideToggle('fast');
+        });
+
+        window.onresize = () =>  {
+            if ($(window).width() > 480) {
+                $(".sidebar").show();
+            }
+        };
+    });
+</script>
 </body>
 </html>
