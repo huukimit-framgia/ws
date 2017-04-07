@@ -6,4 +6,4 @@ export const app = {
     logo: {
         big: '/ws.logo.png'
     }
-};
+}

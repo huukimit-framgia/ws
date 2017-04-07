@@ -1,10 +1,10 @@
 /**
  * Created by kimnh on 07/04/2017.
  */
-import AppHeader from './Header.vue'
-import AppSidebar from './Sidebar.vue'
+import Navigation from './Navigation.vue'
+import Sidebar from './Sidebar.vue'
 
 export {
-    AppHeader,
-    AppSidebar
+    Navigation,
+    Sidebar
 }

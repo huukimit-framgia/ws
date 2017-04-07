@@ -1,40 +1,41 @@
 /**
  * Created by kimnh on 02/04/2017.
  */
-import * as Api from '../../api';
+import {auth} from '../../api'
 
 export default {
     state: {
         user: {},
-        authenticated: false
+        authenticated: false,
+        error: {}
     },
     mutations: {
-        setAuthenticatedUser(state, user) {
-            state.user = user;
-            state.authenticated = true;
+        setAuthenticateError (state, error) {
+            state.error = error
         },
-        logout(state, user) {
-            state.user = {};
-            state.authenticated = false;
+        setAuthenticatedUser (state, user) {
+            state.user = user
+            state.authenticated = user !== null && user !== undefined
+        },
+        logout (state) {
+            state.user = {}
+            state.authenticated = false
         }
     },
     getters: {
-        user(state, getters) {
-            return state.user;
+        user (state) {
+            return state.user
         },
-        authenticated(state){
-            return state.authenticated;
+        authenticated (state) {
+            return state.authenticated
+        },
+        getAuthErrors (state) {
+            return state.error
         }
     },
     actions: {
-        login({commit, state}, user) {
-            Api.auth.login(user).then((response) => {
-                console.log('Set Store User');
-                localStorage.setItem('id_token', response.data.token);
-                commit('setAuthenticatedUser', response.data.user);
-            }, () => {
-
-            })
+        login ({commit}, user) {
+            return auth.login(user)
         }
     }
 }

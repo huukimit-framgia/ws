@@ -3,20 +3,20 @@
  */
 import Vue from 'vue'
 import Router from 'vue-router'
-import AdminLayout from './components/Container.vue'
+import Template from './Template.vue'
 import Dashboard from './views/Dashboard.vue'
 import PageNotFound from './views/pages/Page404.vue'
 import Login from './views/auth/Login.vue'
 import ForgotPassword from './views/auth/Login.vue'
 
-Vue.use(Router);
+Vue.use(Router)
 
 let routes = [
     {
         path: '/admin',
         name: 'root',
         redirect: '/admin/dashboard',
-        component: AdminLayout,
+        component: Template,
         children: [
             {
                 path: 'dashboard',
@@ -26,7 +26,7 @@ let routes = [
         ]
     },
     {
-        path: '/admin/login',
+        path: '/login',
         name: 'login',
         component: Login
     },
@@ -40,21 +40,21 @@ let routes = [
         name: 'page.404',
         component: PageNotFound,
     }
-];
+]
 
 const router = new Router({
     mode: 'history',
     root: '/admin',
     routes
-});
+})
 
 // Accept path "/admin/" as "/admin":
 router.beforeEach((to, from, next) => {
     if (to.path !== '/' && /\/$/g.test(to.path)) {
-        router.replace(to.path.replace(/\/$/g, ''));
+        router.replace(to.path.replace(/\/$/g, ''))
     } else {
-        next();
+        next()
     }
-});
+})
 
-export default router;
+export default router

@@ -1,5 +1,6 @@
 <?php
 
+use App\Core\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,30 +13,17 @@ class CreateDatabase extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->rememberToken();
-            $table->boolean('is_super')->default(false);
-            $table->boolean('is_verify')->default(false);
-            $table->boolean('is_active')->default(false);
-            $table->timestamps();
-        });
-
-        Schema::create('customers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('avatar')->nullable();
-            $table->string('phone');
-            $table->string('address');
-            $table->rememberToken();
+            $table->integer('role')->default(User::USER);
             $table->boolean('is_verify')->default(false);
             $table->boolean('is_active')->default(false);
             $table->timestamps();
@@ -81,8 +69,7 @@ class CreateDatabase extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('users');
         Schema::dropIfExists('password_resets');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('products');

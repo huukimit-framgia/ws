@@ -10,25 +10,21 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::group(['prefix' => 'admin', 'namespace' => 'Web'], function () {
-    //
-});
-
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => '/'], function () {
     // Authentication:
-    Route::get('auth', 'Auth\LoginController@getAuth')->name('api.admin.auth.getAuth');
+    Route::get('auth/check', 'Auth\AccountController@check')->name('api.auth.getAuth');
 
-    Route::post('/login', 'Auth\LoginController@login')
-        ->name('api.admin.auth.postLogin')
-        ->middleware('guest:admin');
+    // Authentication Routes...
+    Route::post('login', 'Auth\LoginController@login')->name('auth.postLogin');
+    Route::post('logout', 'Auth\LoginController@logout')->name('auth.logout');
 
-    Route::group(['prefix' => 'password'], function () {
-        Route::post('email', 'Auth\PasswordController@postEmail')->name('api.admin.auth.password.postEmail');
-        Route::put('reset/{token}', 'Auth\PasswordController@resetPassword')
-            ->name('api.admin.auth.password.resetPassword');
-    });
+    // Registration Routes...
+//    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
+    Route::post('register', 'Auth\RegisterController@register')->name('auth.postRegister');
 
-    Route::put('/profile', 'ProfileController@update')->name('api.admin.profile.update');
-    Route::get('/admins', 'AdminController@index')->name('api.admin.admin.list')->middleware('auth:admin');
+    // Password Reset Routes...
+//    Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('auth.password.request');
+    Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('auth.password.email');
+//    Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('auth.password.reset');
+    Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.change');
 });

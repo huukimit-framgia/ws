@@ -17,3 +17,4 @@ Homestead.json
 Homestead.yaml
 .env
 npm-debug.log
+yarn-error.log

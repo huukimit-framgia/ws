@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Core\Models\BaseUser;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
@@ -30,31 +29,10 @@ class Controller extends BaseController
     /**
      * Get current auth
      *
-     * @return Authenticatable|BaseUser|null
+     * @return Authenticatable|null
      */
     public function auth()
     {
-        return Auth::guard($this->getGuard())->user();
-    }
-
-    /**
-     * Get the guard to be used during authentication.
-     *
-     * @return string
-     */
-    protected function getGuard()
-    {
-        return property_exists($this, 'guard') ? $this->guard : config('auth.defaults.guard');
-    }
-
-    /**
-     * Get the auth middleware for the application.
-     *
-     * @return string
-     */
-    public function authMiddleware()
-    {
-        $guard = $this->getGuard();
-        return $guard ? 'auth:' . $guard : 'auth';
+        return Auth::user();
     }
 }
