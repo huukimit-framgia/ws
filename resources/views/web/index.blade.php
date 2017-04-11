@@ -11,6 +11,9 @@
 <body>
     <div id="app">
         <h1>Hello world!!!</h1>
+        <p style="font-size: 18px">
+            WebShop coming soon.... <a href="/admin">Go to dashboard</a>
+        </p>
     </div>
 </body>
 </html>

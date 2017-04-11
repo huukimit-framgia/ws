@@ -36,6 +36,13 @@ export default {
     actions: {
         login ({commit}, user) {
             return auth.login(user)
+        },
+        sendLinkResetPassword ({commit}, email) {
+            return auth.sendLinkResetPassword(email)
+        },
+        changePassword ({commit}, data) {
+            console.log(this)
+            // return axios.post('/')
         }
     }
 }

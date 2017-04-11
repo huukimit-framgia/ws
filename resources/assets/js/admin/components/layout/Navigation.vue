@@ -21,21 +21,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="app-admin-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Posts</a>
-                    </li>
-                    <li>
-                        <a href="#">New Post</a>
-                    </li>
+                    <!--<li>-->
+                        <!--<a href="#">Posts</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">New Post</a>-->
+                    <!--</li>-->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <router-link v-if="!authenticated" :to="{name: 'login'}">Login</router-link>
-                        <a v-if="authenticated">{{user.name}}</a>
-                    </li>
-                    <li>
-                        <a v-if="!authenticated" href="{ name: 'register'}">Register</a>
-                    </li>
                     <li class="dropdown" v-if="authenticated">
                         <a
                             href="#"
@@ -45,14 +38,15 @@
                             aria-haspopup="true"
                             aria-expanded="false"
                         >
-                            Profile <span class="caret"></span>
+                            {{user.first_name}} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Setting</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Logout</a></li>
+                            <li>
+                                <a href="/logout">Logout</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

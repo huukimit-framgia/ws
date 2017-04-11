@@ -1,17 +1,17 @@
 <template>
-    <div class="app-login">
+    <div class="wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-8 col-md-offset-4 col-sm-offset-2">
                     <form
                         method="post"
                         action="#"
-                        class="form-horizontal login-form"
+                        class="form-horizontal base-form"
                         @submit.prevent="submit"
                     >
                         <div class="row">
                             <div class="form-group">
-                                <h1 class="login-title">Welcome. Please login.</h1>
+                                <h1 class="form-title">Welcome. Please login.</h1>
                             </div>
                         </div>
 
@@ -60,10 +60,11 @@
     import {mapActions, mapGetters, mapMutations} from 'vuex'
     import TextField from '../../../common/components/form/basic/TextField.vue'
     import RememberBox from '../../components/auth/RememberBox.vue'
-    import UserStub from '../../stubs/User'
+    import UserStub from '../../stubs/auth/User'
 
     export default {
-        name: 'login',
+        name: 'LoginForm',
+
         components: {
             TextField,
             RememberBox

@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'customers',
+        'passwords' => 'users',
     ],
 
     /*
@@ -97,16 +97,16 @@ return [
     */
 
     'passwords' => [
-        'customers' => [
-            'provider' => 'customers',
-            'email' => 'emails.customer.auth.password-reset',
+        'users' => [
+            'provider' => 'users',
+            'email' => 'emails.auth.password-reset',
             'table' => 'password_resets',
             'expire' => 60,
         ],
 
         'admins' => [
             'provider' => 'admins',
-            'email' => 'emails.admin.auth.password-reset',
+            'email' => 'emails.auth.password-reset',
             'table' => 'password_resets',
             'expire' => 60,
         ],

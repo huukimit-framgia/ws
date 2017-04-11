@@ -11,10 +11,7 @@
                 Remember me
             </label>
 
-            <router-link
-                :to="{name: 'auth.form.forgot-password'}"
-                class="link-forgot-password"
-            >
+            <router-link class="link-forgot-password" :to="{name: 'password.request'}">
                 Forgot password
             </router-link>
         </div>

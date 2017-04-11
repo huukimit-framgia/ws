@@ -7,7 +7,8 @@ import Template from './Template.vue'
 import Dashboard from './views/Dashboard.vue'
 import PageNotFound from './views/pages/Page404.vue'
 import Login from './views/auth/Login.vue'
-import ForgotPassword from './views/auth/Login.vue'
+import ForgotPassword from './views/auth/ForgotPassword.vue'
+import ResetPassword from './views/auth/ResetPassword.vue'
 
 Vue.use(Router)
 
@@ -31,9 +32,14 @@ let routes = [
         component: Login
     },
     {
-        path: '/admin/forgot-password',
-        name: 'auth.form.forgot-password',
+        path: '/password/reset',
+        name: 'password.request',
         component: ForgotPassword
+    },
+    {
+        path: '/password/reset/:token',
+        name: 'password.reset',
+        component: ResetPassword
     },
     {
         path: '*',

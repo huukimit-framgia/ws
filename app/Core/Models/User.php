@@ -8,10 +8,12 @@
 namespace App\Core\Models;
 
 use App\Core\Models\Contracts\UserProvider;
+use App\Core\Models\Traits\CanResetPassword;
 use App\Core\Models\Traits\UserProviderable;
 use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as ResetPasswordable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -32,10 +34,11 @@ use Laravel\Passport\HasApiTokens;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-class User extends Model implements UserProvider, AuthenticatableContract
+class User extends Model implements UserProvider, AuthenticatableContract, ResetPasswordable
 {
     use UserProviderable,
         Authenticatable,
+        CanResetPassword,
         HasApiTokens,
         Notifiable;
 

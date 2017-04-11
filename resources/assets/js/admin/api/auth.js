@@ -3,5 +3,6 @@
  */
 export default {
     login: credentials => axios.post('/api/login', credentials),
-    check: () => axios.get('/api/auth/check')
+    check: () => axios.get('/api/auth/check'),
+    sendLinkResetPassword: email => axios.post('/api/password/email', {email})
 }
