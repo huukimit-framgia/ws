@@ -6,11 +6,9 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    protected $guard = 'admin';
-
     public function __construct()
     {
-        $this->middleware($this->authMiddleware());
+        $this->middleware('auth');
     }
 
     /**

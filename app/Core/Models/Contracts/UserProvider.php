@@ -15,14 +15,16 @@ namespace App\Core\Models\Contracts;
  */
 interface UserProvider
 {
-    const ADMIN = 'Admin';
-    const CUSTOMER = 'Customer';
-
-    public function getType();
+    const USER = 1;
+    const ADMIN = 2;
 
     public function isAdmin();
 
-    public function isCustomer();
+    public function isUser();
+
+    public function isVerified();
+
+    public function isActived();
 
     public function getName();
 

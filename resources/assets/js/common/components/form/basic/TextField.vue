@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="form-group">
+        <div :class="`form-group ${hasError}`">
             <label v-if="label" class="control-label">{{label}}</label>
             <input
                 :type="type"
@@ -9,9 +9,10 @@
                 class="form-control"
                 :required="required"
                 :value="value"
-                @input="updateValue"
+                @change="$emit('input', $event.target.value)"
                 :placeholder="placeholder"
             />
+            <span class="help-block animated fadeIn" v-if="error">{{error}}</span>
         </div>
     </div>
 </template>
@@ -19,6 +20,10 @@
 <script>
     export default {
         props: {
+            error: {
+                type: String,
+                default: null
+            },
             label: {
                 type: String,
                 default: null
@@ -44,10 +49,9 @@
                 default: null
             }
         },
-
-        methods: {
-            updateValue() {
-                this.$emit('input', this.$refs.input.value);
+        computed: {
+            hasError() {
+                return this.error ? 'has-error' : ''
             }
         }
     }

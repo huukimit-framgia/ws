@@ -1,14 +1,8 @@
-// Vendor:
-@import "../vendor/bootstrap";
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
-// Normalize:
-@import "normalize";
-@import "common";
+// Variables
+@import "variables";
 
-// Core css:
-@import "layout/header";
-@import "layout/navbar";
-@import "layout/container";
-
-// Components:
-@import "components/box";
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
